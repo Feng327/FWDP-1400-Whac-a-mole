@@ -91,6 +91,8 @@ const game = {
     $("#timer").text(game.timeLeft);
   },
 
+  timerLoop: function () {},
+
   startTimer: function () {
     game.timeLeft--;
     setTimeout(game.startTimer, 1000);
