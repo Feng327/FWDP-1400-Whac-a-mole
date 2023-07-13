@@ -1,0 +1,178 @@
+/* Home page👇 */
+body {
+  background-color: rgb(255, 255, 255);
+  margin: 0 auto;
+}
+h1,
+h2,
+h3,
+p {
+  font-family: "Play", sans-serif;
+  padding: 3px;
+  margin: 0;
+}
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 0;
+  text-shadow: rgb(247, 139, 15) 4px 7px 10px;
+}
+.traffic-icon {
+  width: 6rem;
+  display: block;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+}
+/* Animal banner movements👇 */
+.animals-img {
+  width: 140px;
+  height: 140px;
+  margin: 25px;
+  position: relative;
+}
+.animal-banner-1 {
+  margin-top: 1rem;
+  white-space: nowrap;
+  position: absolute;
+  overflow: hidden;
+  animation: banner1move 15s infinite linear;
+  height: 80vh;
+  opacity: 100%;
+}
+.animal-banner-1 div {
+  display: inline-block;
+}
+@keyframes banner1move {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.animal-banner-2 {
+  margin-top: 10rem;
+  white-space: nowrap;
+  position: absolute;
+  overflow: hidden;
+  animation: banner2move 14s infinite linear;
+  animation-direction: reverse;
+  height: 80vh;
+  opacity: 100%;
+}
+.animal-banner-2 div {
+  display: inline-block;
+}
+@keyframes banner2move {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+/* Home page button styling */
+.main-btn {
+  margin-left: 43%;
+  box-shadow: inset 0px 1px 7px -4px #fce2c1;
+  background: linear-gradient(to bottom, #f9c787 5%, #f2a93b 100%);
+  background-color: #ffc477;
+  border-radius: 13px;
+  border: 3px solid #eeb44f;
+  display: inline-block;
+  cursor: pointer;
+  color: #282727;
+  font-family: "Play";
+  font-size: 22px;
+  font-weight: bold;
+  padding: 11px 27px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #cc9f52;
+}
+.main-btn:hover {
+  background: linear-gradient(to bottom, #f09011 5%, #fbb75f 100%);
+  background-color: #f78f07;
+}
+.main-btn:active {
+  position: relative;
+  top: 1px;
+}
+/* ------------------------------- */
+
+/* Game-screen👇 */
+
+.grid {
+  width: 300px;
+  height: 300px;
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(3, 1fr);
+  margin-left: 400px;
+}
+.cell {
+  height: 200px;
+  width: 200px;
+  border: solid black 1px;
+}
+.mole {
+  background-image: url("/animals-img/mole.jpg");
+  background-size: cover;
+}
+
+.game-buttons {
+  position: relative;
+  top: 20px;
+}
+#playPauseButton {
+  padding: 5px;
+  margin: auto;
+  width: 60px;
+  position: relative;
+}
+#endGameButton {
+  padding: 4px;
+  margin: auto;
+}
+#difficulty-bar {
+  border-radius: 6px;
+  padding: 4px;
+}
+span {
+  cursor: pointer;
+}
+.number {
+  margin: 15px;
+}
+.minus,
+.plus {
+  font-size: 20px;
+  color: #282727;
+  width: 26px;
+  height: 18px;
+  background: #f2f2f2;
+  border-radius: 5px;
+  padding: 6px;
+  border: 1px solid #ddd;
+  vertical-align: middle;
+  text-align: center;
+}
+.minus:hover,
+.plus:hover {
+  background: linear-gradient(to bottom, #eee876 5%, #f2c182 100%);
+}
+.minus:active,
+.plus:active {
+  background: linear-gradient(to bottom, #eda815 5%, #f09723 100%);
+}
+
+.speed-display {
+  height: 30px;
+  width: 80px;
+  text-align: center;
+  font-size: 24px;
+  border: 1px solid #131313;
+  border-radius: 4px;
+  vertical-align: middle;
+}

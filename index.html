@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <!-- <link rel="stylesheet" href="styles/main-screen.css" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+  
+    <title>Whack A Mole</title>
+  </head>
+  <body>
+    <!-- Home-page -->
+    <div class="screen" id="home-screen">
+      <img
+        src="animals-img/horizontal-traffic-light.png"
+        alt="traffic-light"
+        class="traffic-icon"
+      />
+      <h1 id="gameTitle">Welcome to Whack a mole</h1>
+      <button class="main-btn">Click to start</button>
+      <!-- home-page- the 2 moving animal banners👇 -->
+      <div class="animal-banner-1">
+        <div>
+          <img src="animals-img/mole.jpg" alt="koala" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="bear" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="cat" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="dog" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="frog" class="animals-img" />
+          <img
+            src="animals-img/mole.jpg"
+            alt="hamster"
+            class="animals-img"
+          />
+          <img src="animals-img/mole.jpg" alt="lion" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="monkey" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="pig" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="rabbit" class="animals-img" />
+          <img
+            src="animals-img/mole.jpg"
+            alt="unicorn"
+            class="animals-img"
+          />
+          <img src="animals-img/mole.jpg" alt="fox" class="animals-img" />
+        </div>
+
+        <div>
+          <img src="animals-img/mole.jpg" alt="koala" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="bear" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="cat" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="dog" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="frog" class="animals-img" />
+          <img
+            src="animals-img/mole.jpg"
+            alt="hamster"
+            class="animals-img"
+          />
+          <img src="animals-img/mole.jpg" alt="lion" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="monkey" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="pig" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="rabbit" class="animals-img" />
+          <img
+            src="animals-img/mole.jpg"
+            alt="unicorn"
+            class="animals-img"
+          />
+          <img src="animals-img/mole.jpg" alt="fox" class="animals-img" />
+        </div>
+      </div>
+      <div class="animal-banner-2">
+        <div>
+          <img src="animals-img/mole.jpg" alt="mouse" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="cow" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="tiger" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="rabbit" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="pig" class="animals-img" />
+          <img
+            src="animals-img/mole.jpg"
+            alt="octopus"
+            class="animals-img"
+          />
+          <img src="animals-img/mole.jpg" alt="panda" class="animals-img" />
+          <img
+            src="animals-img/mole.jpg"
+            alt="unicorn"
+            class="animals-img"
+          />
+          <img src="animals-img/mole.jpg" alt="fox" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="bear" class="animals-img" />
+        </div>
+
+        <div>
+          <img src="animals-img/mole.jpg" alt="mouse" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="cow" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="tiger" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="rabbit" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="pig" class="animals-img" />
+          <img
+            src="animals-img/mole.jpg"
+            alt="octopus"
+            class="animals-img"
+          />
+          <img src="animals-img/mole.jpg" alt="panda" class="animals-img" />
+          <img
+            src="animals-img/mole.jpg"
+            alt="unicorn"
+            class="animals-img"
+          />
+          <img src="animals-img/mole.jpg" alt="fox" class="animals-img" />
+          <img src="animals-img/mole.jpg" alt="bear" class="animals-img" />
+        </div>
+      </div>
+    </div>  
+
+    <!-- Game-Screens👇 -->
+    <main>
+      <!-- Splash-screen with instruction -->
+      <div class="screen" id="splash-screen">
+        <h2>Please enter your name</h2>
+        <h2 id="player-name-display"></h2>
+        <label for="player-name">Player Name:</label>
+        <input id="name-input" type="text" placeholder="Enter your name" />
+        <button id="join-btn" disabled>Join</button>
+        <button id="start-btn" disabled>Start Game</button>
+
+        <!-- This is game instruction modal 👇-->
+      <button type="button" class="instruction-btn" data-toggle="modal" data-target=".bd-example-modal-lg">Instruction</button>
+      <!-- Open/close Modal -->
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <p>Instruction</p>
+              <img src="animals-img/game_instruction.png" alt="game-instruction">
+              <p>
+              </br>
+                There is a new program opened in BCIT for students to learn how to whack a mole, or many! 
+                Simply click with mouse to whack em and get points. Go, Whackers!!!
+              </p>
+            </div>
+          </div>
+        </div> 
+      </div>
+      <!-- Game-screen -->
+      <div class="screen" id="game-screen">
+        <h2>Whack a mole</h2>
+        <h3>Your score: <span id="score">0</span></h3>
+        <h3>Time Left: <span id="timer">60</span></h3>
+        <div class="grid">
+          <div class="cell" id="1"></div>
+          <div class="cell" id="2"></div>
+          <div class="cell" id="3"></div>
+          <div class="cell" id="4"></div>
+          <div class="cell" id="5"></div>
+          <div class="cell" id="6"></div>
+          <div class="cell" id="7"></div>
+          <div class="cell" id="8"></div>
+          <div class="cell" id="9"></div>
+        </div>
+        <!-- Buttons in game-screen -->
+          <div class="game-buttons">
+            <button id="playButton" class="btn btn-primary">
+              <i class="bi bi-play-circle"></i>
+            </button>
+            <button id="difficulty-bar" class="btn btn-success">
+              <span class="minus">-</span>
+              <input class="speed-display" type="text" value="1" />
+              <span class="plus">+</span>
+            </button>
+            <button id="endGameButton" class="btn btn-danger">End Game</button>
+          
+          </div>
+        </div>
+          
+      <!-- Game-over-screen 👇  -->
+      <div class="screen" id="game-over-screen">
+        <h2>Game Over</h2>
+        <p>Your final score is <span id="final-score"></span></p>
+        <button id="playAgainButton" class="btn btn-primary">Play Again</button>
+      </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/game.js"></script>
+  </body>
+</html>
