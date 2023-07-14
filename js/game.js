@@ -12,9 +12,9 @@ const game = {
 
   score: 0,
   moleSpeed: 1000,
-  timer: 10,
+  timer: 60,
   timerInterval: 0,
-  timeLeft: 10,
+  timeLeft: 60,
   moleInterval: 0,
 
   switchScreen: function (currentScreen) {
@@ -34,7 +34,7 @@ const game = {
 
   toggleRunning: function () {
     this.isRunning = !this.isRunning;
-    $(".indicator").toggleClass("running");
+    // $(".indicator").toggleClass("running");
     // if (game.isRunning) {
     //   $("#playPauseButton").html('<i class="bi bi-pause-circle" ><i/>');
     //   $("#playPauseButton").css("color", "white");
@@ -45,11 +45,15 @@ const game = {
   },
   resetGame: function () {
     game.isRunning = false;
-    $("#splash-screen").show();
-    $("#game-screen").hide();
-    game.stopTimer();
+    // $("#splash-screen").show();
+    game.playerName = "";
+    game.playerForm.value = "";
+    game.switchScreen("splash-screen");
+    $("#game-over-screen").hide();
+    // game.stopTimer();
     game.resetScore();
     game.resetTimer();
+    game.timeLeft = 60;
     $(".cell").removeClass("mole").css("background-color", "");
     game.moleSpeed = 1000;
     //Reset the speed after end-game🛑
@@ -62,10 +66,12 @@ const game = {
       game.moleInterval = setInterval(function () {
         $(".cell").removeClass("mole");
         $(".cell").css("background-color", "");
-        const randomCell = Math.floor(Math.random() * 9);
+        const randomCell = Math.floor(Math.random() * 10);
         $(".cell").eq(randomCell).addClass("mole");
-        $(".cell.mole").css("background-color", "yellow");
+        // $(".cell.mole").css("background-color", "yellow");
       }, game.moleSpeed);
+    } else {
+      clearInterval(game.moleInterval);
     }
   },
   handleMoleClick: function () {
@@ -83,7 +89,7 @@ const game = {
   },
 
   resetTimer: function () {
-    game.timeLeft = game.timer;
+    game.timeLeft = 60;
     game.updateTimerDisplay();
   },
 
@@ -91,26 +97,30 @@ const game = {
     $("#timer").text(game.timeLeft);
   },
 
-  timerLoop: function () {},
-
   startTimer: function () {
+    if (!game.isRunning) {
+      game.this.isRunning = true;
+    }
     game.timeLeft--;
-    setTimeout(game.startTimer, 1000);
     setTimeout(game.updateTimerDisplay, 1000);
+    game.updateTimerDisplay();
+
     if (game.timeLeft == 0) {
+      game.isRunning = false;
       game.stopTimer();
-      $("#game-over-screen").show();
+      game.switchScreen("game-over-screen");
       $("#final-score").text(game.score);
       game.resetGame();
-      // game.isRunning = false;
       clearTimeout(game.updateTimerDisplay);
       clearTimeout(game.startTimer);
-      // window.setTimeout(function () {
-      // }, game.timerInterval);
+      window.setTimeout(function () {}, game.timerInterval);
+    } else {
+      setTimeout(game.startTimer, 1000);
     }
   },
 
   stopTimer: function () {
+    game.isRunning = false;
     clearTimeout(game.startTimer);
     clearTimeout(game.updateTimerDisplay);
   },
@@ -124,7 +134,7 @@ const game = {
     $("#score").text(game.score);
     game.updateTimerDisplay();
   },
-  increaseSpeed: function () {
+  decreaseSpeed: function () {
     game.moleSpeed -= 100;
     if (game.moleSpeed < 100) {
       game.moleSpeed = 100;
@@ -133,7 +143,7 @@ const game = {
   },
 
   // Decrease the mole speed
-  decreaseSpeed: function () {
+  increaseSpeed: function () {
     game.moleSpeed += 100;
     game.startMolePopUp();
   },
@@ -141,9 +151,9 @@ const game = {
   init: function () {
     // Hide everything except Home Screen
 
-    $("#home-screen").hide(); //This line is just for JS checking, need to delete!!!
+    // $("#home-screen").hide(); //This line is just for JS checking, need to delete!!!
     $("#splash-screen").hide();
-    // $("#game-screen").hide();
+    $("#game-screen").hide();
     $("#game-over-screen").hide();
 
     // Event handlers-Spalsh-screen
@@ -153,8 +163,8 @@ const game = {
 
     $("#start-btn").on("click", function () {
       $("#gameTitle").text(game.title);
+      game.resetGame();
       game.switchScreen("game-screen");
-      // game.startTimer();
     });
 
     game.playerForm.addEventListener("keyup", function () {
@@ -172,15 +182,23 @@ const game = {
     $("#playButton").on("click", function () {
       // game.toggleRunning();
       // game.resetScore();
-      game.resetTimer();
       game.isRunning = true;
+      // game.resetTimer();
       game.startTimer();
       game.startMolePopUp();
     });
 
     $("#endGameButton").on("click", function () {
-      game.resetGame;
-      $("#splash-screen").hide();
+      // game.resetGame();
+      $("#final-score").text(game.score);
+      game.switchScreen("game-over-screen");
+    });
+
+    $("#playAgainButton").on("click", function () {
+      game.resetGame();
+      game.playerName = "";
+      game.playerForm.value = "";
+      game.switchScreen("splash-screen");
     });
 
     // This is the difficulty-bar function👇

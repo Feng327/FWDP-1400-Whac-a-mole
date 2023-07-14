@@ -17,8 +17,8 @@ h1 {
   margin-top: 0;
   text-shadow: rgb(247, 139, 15) 4px 7px 10px;
 }
-.traffic-icon {
-  width: 6rem;
+.hammer {
+  width: 4rem;
   display: block;
   padding: 0;
   margin-left: auto;
@@ -76,6 +76,7 @@ h1 {
 /* Home page button styling */
 .main-btn {
   margin-left: 43%;
+  margin-top:5%;
   box-shadow: inset 0px 1px 7px -4px #fce2c1;
   background: linear-gradient(to bottom, #f9c787 5%, #f2a93b 100%);
   background-color: #ffc477;
