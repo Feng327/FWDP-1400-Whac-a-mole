@@ -27,9 +27,9 @@ const game = {
     game.playerNameDisplay.innerHTML = "Hello, " + game.playerForm.value;
 
     game.startGameButton.disabled = false;
-    // game.instructionButton.hidden = false;
     game.playerForm.style.display = "none";
     game.joinGameButton.style.display = "none";
+    $("#player-name-label").text("");
   },
 
   toggleRunning: function () {
@@ -45,10 +45,12 @@ const game = {
   },
   resetGame: function () {
     game.isRunning = false;
-    // $("#splash-screen").show();
     game.playerName = "";
     game.playerForm.value = "";
-    game.switchScreen("splash-screen");
+    // game.playerNameDisplay.innerHTML ="";
+    // game.updateName();
+    $("#splash-screen").show();
+    // game.switchScreen("splash-screen");
     $("#game-over-screen").hide();
     // game.stopTimer();
     game.resetScore();
@@ -110,10 +112,10 @@ const game = {
       game.stopTimer();
       game.switchScreen("game-over-screen");
       $("#final-score").text(game.score);
-      game.resetGame();
+      // game.resetGame();
       clearTimeout(game.updateTimerDisplay);
       clearTimeout(game.startTimer);
-      window.setTimeout(function () {}, game.timerInterval);
+      // window.setTimeout(function () {}, game.timerInterval);
     } else {
       setTimeout(game.startTimer, 1000);
     }
@@ -196,9 +198,13 @@ const game = {
 
     $("#playAgainButton").on("click", function () {
       game.resetGame();
-      game.playerName = "";
-      game.playerForm.value = "";
+      // game.playerName = "";
+      // game.playerForm.value = "";
       game.switchScreen("splash-screen");
+      game.playerForm.style.display = "inline";
+      game.joinGameButton.style.display = "inline";
+      game.playerNameDisplay.innerHTML = "";
+      game.startGameButton.disabled = true;
     });
 
     // This is the difficulty-bar function👇

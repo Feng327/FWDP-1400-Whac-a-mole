@@ -2,6 +2,8 @@
 body {
   background-color: rgb(255, 255, 255);
   margin: 0 auto;
+  /* height: 100vh; */
+  overflow: hidden;
 }
 h1,
 h2,
@@ -73,6 +75,7 @@ h1 {
     transform: translate3d(-50%, 0, 0);
   }
 }
+
 /* Home page button styling */
 .main-btn {
   margin-left: 43%;
@@ -100,22 +103,59 @@ h1 {
   position: relative;
   top: 1px;
 }
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(237, 228, 165);
+  padding: 2px;
+  text-align: center;
+}
+/* Splash-screen */
+#splash-screen{
+  text-align: center;
+  margin-top: 50px;
+}
+#name-input{
+  border:solid 2px #131313;
+  border-radius: 4px;
+  padding:6px;
+}
+#player-name-display{
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.instruction-btn{
+  padding:8px;
+  border-radius:7px;
+}
+#mole-wave{
+  display: block;
+  margin: 0 auto;
+  padding: 5px;
+}
+
 /* ------------------------------- */
 
 /* Game-screen👇 */
-
+#game-screen h2{
+  text-shadow: rgb(247, 139, 15) 4px 7px 10px;
+}
 .grid {
   width: 300px;
   height: 300px;
   display: grid;
   position: relative;
+  top:0px;
   grid-template-columns: repeat(3, 1fr);
   margin-left: 400px;
 }
 .cell {
   height: 200px;
   width: 200px;
-  border: solid black 1px;
+  border: solid black 4px;
+  border-radius: 4px;
 }
 .mole {
   background-image: url("/animals-img/mole.jpg");
@@ -126,7 +166,7 @@ h1 {
   position: relative;
   top: 20px;
 }
-#playPauseButton {
+#playButton {
   padding: 5px;
   margin: auto;
   width: 60px;
@@ -177,3 +217,25 @@ span {
   border-radius: 4px;
   vertical-align: middle;
 }
+
+
+/* Game-over-screen */
+#game-over-screen{
+  text-align: center;
+  margin-top: 50px;
+}
+#final-score{
+  font-size: medium;
+  font-weight: 700;
+}
+#game-over-screen p{
+  font-size: large;
+}
+#playAgainButton{
+  margin-top: 20px;
+}
+#mole-ass{
+  display: block;
+  margin: 0 auto;
+}
+

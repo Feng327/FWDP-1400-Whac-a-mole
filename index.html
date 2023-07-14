@@ -11,7 +11,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
-    <!-- <link rel="stylesheet" href="styles/main-screen.css" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,7 +29,7 @@
         alt="hammer"
         class="hammer"
       />
-      <h1 id="gameTitle">Welcome to Whack a mole</h1>
+      <h1 id="gameTitle">Welcome to Whack a Mole <img src="animals-img/collision.png" alt="collision"></h1>
       <button class="main-btn">Click to start</button>
       <!-- home-page- the 2 moving animal banners👇 -->
       <div class="animal-banner-1">
@@ -123,6 +122,10 @@
           <img src="animals-img/mole.jpg" alt="mole" class="animals-img" />
         </div>
       </div>
+      <div class="footer">
+        <p>FWDP 1400 Whack-a-mole Game </br> Yafeng & Albert</p>
+      </div>
+
     </div>  
 
     <!-- Game-Screens👇 -->
@@ -131,27 +134,27 @@
       <div class="screen" id="splash-screen">
         <h2>Please enter your name</h2>
         <h2 id="player-name-display"></h2>
-        <label for="player-name">Player Name:</label>
         <input id="name-input" type="text" placeholder="Enter your name" />
-        <button id="join-btn" disabled>Join</button>
-        <button id="start-btn" disabled>Start Game</button>
+        <button class="btn btn-success"   id="join-btn" disabled>Join</button>
+        <button class="btn btn-primary" id="start-btn" disabled>Start Game</button>
 
         <!-- This is game instruction modal 👇-->
-      <button type="button" class="instruction-btn" data-toggle="modal" data-target=".bd-example-modal-lg">Instruction</button>
-      <!-- Open/close Modal -->
-      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <p>Instruction</p>
-              <img src="animals-img/whac-mole-instruction.png" alt="game-instruction">
-              <p>
-              </br>
-                There is a new program opened in BCIT for students to learn how to whack a mole, or many! 
-                Simply click with mouse to whack em and get points. Go, Whackers!!!
-              </p>
+        <button type="button" class="instruction-btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-lg">Instruction</button>
+        <!-- Open/close Modal -->
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <p>Instruction</p>
+                <img src="animals-img/whac-mole-instruction.png" alt="game-instruction">
+                <p>
+                </br>
+                  There is a new program opened in BCIT for students to learn how to whack a mole, or many! 
+                  Simply click with mouse to whack em and get points. Go, Whackers!!!
+                </p>
+              </div>
             </div>
-          </div>
-        </div> 
+          </div> 
+          <img id="mole-wave"  src="animals-img/mole-wave.png" alt="A mole wave hand">
       </div>
       <!-- Game-screen -->
       <div class="screen" id="game-screen">
@@ -189,6 +192,7 @@
         <h2>Game Over</h2>
         <p>Your final score is <span id="final-score"></span></p>
         <button id="playAgainButton" class="btn btn-primary">Play Again</button>
+        <img id="mole-ass"  src="animals-img/mole-ass.png" alt="mole's ass">
       </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
